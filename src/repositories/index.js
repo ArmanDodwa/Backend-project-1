@@ -1,3 +1,5 @@
-module.exports={
-    
+
+module.exports = {
+
+    AirplaneRepositories: require("./airplane-repositories")
 }
