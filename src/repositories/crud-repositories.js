@@ -6,16 +6,16 @@ class curbRepositories {
   }
 
   async create(data) {
-    try {
+    // try {
       const response = await this.model.create(data);
       return response;
-    } catch (error) {
-      console.log("Error in CRUD repo create:", error);
-      Logger.error(
-        "Something went wrong in the create method of the curb repository"
-      );
-      throw error;
-    }
+    // } catch (error) {
+    //   console.log("Error in CRUD repo create:", error);
+    //   Logger.error(
+    //     "Something went wrong in the create method of the curb repository"
+    //   );
+    //   throw error;
+    // }
   }
   async distory(data) {
     try {
