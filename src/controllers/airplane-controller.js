@@ -44,4 +44,19 @@ async function getAirplane(req, res) {
   }
 }
 
-module.exports = { createAirplane, getAirplanes, getAirplane };
+async function distoryAirplanes(req, res) {
+  try {
+
+    const airplanes = await airplaneService.distoryAirplane(req.params.id);
+    SuccessResponse.data = airplanes;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+
+
+
+module.exports = { createAirplane, getAirplanes, getAirplane , distoryAirplanes };
