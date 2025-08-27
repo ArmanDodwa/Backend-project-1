@@ -1,4 +1,6 @@
-const Logger = require("../config");
+
+const { StatusCodes } = require("http-status-codes");
+const AppError = require("../utils/errors/app-error");
 
 class curbRepositories {
   constructor(model) {
@@ -19,10 +21,13 @@ class curbRepositories {
   }
   async get(data) {
     const response = await this.model.findByPk(data);
+    if (!response) {
+      throw new AppError("Not able to find the resources", StatusCodes.NOT_FOUND);
+    }
     return response;
   }
 
-  async getAll(data) {
+  async getAll() {
     const response = await this.model.findAll();
     return response;
   }
